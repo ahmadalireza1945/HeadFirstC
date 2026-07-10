@@ -1,0 +1,173 @@
+DAFTAR STRUKTUR DATA UNTUK BELAJAR C
+====================================
+
+Catatan:
+- Tidak ada daftar yang benar-benar final karena varian terus berkembang.
+- Daftar ini mencakup struktur data yang paling umum dipelajari dan sering dipakai.
+
+1) LINEAR DASAR
+---------------
+1. Array (static array)
+2. Dynamic Array (resizable array, vector-style)
+3. String (char array)
+4. Singly Linked List
+5. Doubly Linked List
+6. Circular Linked List
+7. Unrolled Linked List
+8. XOR Linked List
+
+2) AKSES TERBATAS
+-----------------
+1. Stack (LIFO)
+2. Queue (FIFO)
+3. Circular Queue
+4. Deque (double-ended queue)
+5. Priority Queue (abstract form)
+6. Monotonic Queue
+7. Ring Buffer (Circular Buffer)
+
+3) HASH DAN PEMETAAN
+--------------------
+1. Hash Table
+2. Hash Map (key-value)
+3. Hash Set
+4. Ordered Map (biasanya berbasis tree)
+5. Multimap
+6. Multiset
+7. Symbol Table
+
+4) HIMPUNAN DISJOINT
+--------------------
+1. Disjoint Set Union (DSU / Union-Find)
+
+5) HEAP DAN VARIANNYA
+---------------------
+1. Binary Heap (Min-Heap / Max-Heap)
+2. Binomial Heap
+3. Fibonacci Heap
+4. Pairing Heap
+5. Leftist Heap
+6. Skew Heap
+7. d-ary Heap
+
+6) TREE UMUM
+------------
+1. General Tree (N-ary Tree)
+2. Binary Tree
+3. Full Binary Tree
+4. Complete Binary Tree
+5. Perfect Binary Tree
+6. Threaded Binary Tree
+
+7) BALANCED SEARCH TREE
+-----------------------
+1. Binary Search Tree (BST)
+2. AVL Tree
+3. Red-Black Tree
+4. Splay Tree
+5. Treap
+6. AA Tree
+7. Scapegoat Tree
+8. Weight-Balanced Tree
+
+8) MULTIWAY SEARCH TREE
+-----------------------
+1. B-Tree
+2. B+ Tree
+3. B* Tree
+4. 2-3 Tree
+5. 2-3-4 Tree
+
+9) TREE UNTUK RANGE/QUERY
+-------------------------
+1. Segment Tree
+2. Lazy Segment Tree
+3. Fenwick Tree (Binary Indexed Tree / BIT)
+4. Interval Tree
+5. Range Tree
+6. Order Statistic Tree
+
+10) TRIE DAN STRING INDEX
+-------------------------
+1. Trie (Prefix Tree)
+2. Compressed Trie
+3. Radix Tree (Patricia Trie)
+4. Ternary Search Tree
+5. Suffix Tree
+6. Suffix Array
+7. LCP Array
+8. DAWG (Directed Acyclic Word Graph)
+9. Aho-Corasick Automaton
+
+11) GRAPH
+----------
+1. Graph (abstract)
+2. Directed Graph
+3. Undirected Graph
+4. Weighted Graph
+5. DAG (Directed Acyclic Graph)
+6. Adjacency Matrix
+7. Adjacency List
+8. Edge List
+9. Incidence Matrix
+
+12) SPATIAL / GEOMETRI
+----------------------
+1. KD-Tree
+2. QuadTree
+3. Octree
+4. R-Tree
+5. R* Tree
+6. BSP Tree
+7. Bounding Volume Hierarchy (BVH)
+
+13) PROBABILISTIK DAN APPROXIMATE
+---------------------------------
+1. Bloom Filter
+2. Counting Bloom Filter
+3. Cuckoo Filter
+4. Count-Min Sketch
+5. HyperLogLog
+6. Quotient Filter
+
+14) STRUKTUR DATA KHUSUS SISTEM/DB
+----------------------------------
+1. Skip List
+2. LSM Tree
+3. SSTable
+4. Inverted Index
+5. Merkle Tree
+6. Consistent Hash Ring
+7. Log-Structured Hash Table
+
+15) PERSISTENT / IMMUTABLE
+--------------------------
+1. Persistent Array
+2. Persistent Linked List
+3. Persistent BST
+4. Persistent Segment Tree
+5. Rope
+6. Finger Tree
+7. Hash Array Mapped Trie (HAMT)
+
+16) TIPE KOMPOSIT DI C (PENTING UNTUK MEMBANGUN STRUKTUR DATA)
+---------------------------------------------------------------
+1. struct
+2. union
+3. enum
+4. pointer
+
+17) STRUKTUR DATA PRAKTIS YANG WAJIB DIKUASAI UNTUK C (PRIORITAS BELAJAR)
+-------------------------------------------------------------------------
+1. Array
+2. String (char array)
+3. Singly Linked List
+4. Doubly Linked List
+5. Stack
+6. Queue + Circular Queue
+7. Hash Table
+8. Binary Search Tree
+9. Heap (Priority Queue)
+10. Graph (Adjacency List)
+11. Trie (opsional tapi bagus untuk string search)
+12. Disjoint Set Union (untuk problem algoritma)
