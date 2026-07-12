@@ -36,10 +36,12 @@ int main(int argc, char *argv[]) {
         "https://en.antaranews.com/rss/news.xml",
         "https://www.sindonews.com/feed",
         "https://mediaindonesia.com/feed/all",
+        "https://www.viva.co.id/get/all",
+        "https://www.jpnn.com/index.php?mib=rss",
     };
 
 
-    int time = 3;
+    int time = 5;
     for (int i = 0; i < time; i++) {
 
         char var[255];
@@ -67,7 +69,7 @@ int main(int argc, char *argv[]) {
         }
 
         // dup2(fd[0], 0);
-        cclose(fd[1]);
+        close(fd[1]);
 
         FILE *pipe_stream = fdopen(fd[0], "r");
         if (pipe_stream == NULL) {
