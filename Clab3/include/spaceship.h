@@ -3,17 +3,19 @@
 
 #include <allegro5/allegro.h>
 #include <math.h>
+#include "globals.h"
+
 
 typedef struct Spaceship{
     float x;
     float y;
     float vx;
     float vy;
+    float radius;
     float heading;
     float speed;
     float turn_speed;
     int gone;
-
 } Spaceship;
 
 void movement(ALLEGRO_KEYBOARD_STATE *key_state, Spaceship *spaceship);

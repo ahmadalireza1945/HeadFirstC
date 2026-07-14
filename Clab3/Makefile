@@ -14,7 +14,7 @@ OBJECTS = $(SOURCES:.c=.o)
 
 # PERBAIKAN: Menambahkan minus (-) sebelum flag I
 CFLAGS = -I$(INCLUDE_DIR) $(shell pkg-config --cflags allegro-5)
-LIBS = $(shell pkg-config --libs allegro-5 allegro_image-5) -lm
+LIBS = $(shell pkg-config --libs allegro-5 allegro_image-5 allegro_primitives-5) -lm
 
 all: $(TARGET)
 
