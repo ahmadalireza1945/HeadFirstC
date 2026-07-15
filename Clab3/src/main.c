@@ -11,7 +11,7 @@
 //variable global for display
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
-const int OBJ_SIZE = 32;
+const float OBJ_SIZE = 48;
 int maxBlasts = 20;
 
 int main(int argc, char *argv[]) {
@@ -74,14 +74,21 @@ int main(int argc, char *argv[]) {
         .turn_speed = 0.05,
     };
 
+    //variable untuk spawn middle spawn
+    float obj_width = (float)al_get_bitmap_width(spaceship_image);
+    float obj_height = (float)al_get_bitmap_height(spaceship_image);
+
+    float spawn_x = spaceship.x + (obj_width / 2.0f);
+    float spawn_y = spaceship.y + (obj_height / 2.0f);
+
     Blast blast[maxBlasts];
-
-
 
     // Inisialisasi status awal setiap peluru di dalam array
     for (int i = 0; i < maxBlasts; i++) {
         blast[i].active = 0;
         blast[i].color = al_map_rgb(255, 0, 0);
+        blast[i].x = spawn_x;
+        blast[i].y = spawn_y;
     }
 
     bool running = true;
@@ -136,7 +143,7 @@ int main(int argc, char *argv[]) {
             al_use_transform(&transform);
 
             // tempat space ship
-            al_draw_bitmap(spaceship_image, -OBJ_SIZE / 2.0, -OBJ_SIZE / 2.0 , 0);
+            al_draw_bitmap(spaceship_image, -OBJ_SIZE / 2.0f, -OBJ_SIZE / 2.0f , 0);
 
             al_identity_transform(&transform);
             al_use_transform(&transform);

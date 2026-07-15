@@ -3,7 +3,7 @@
 
 extern const int SCREEN_WIDTH ;
 extern const int SCREEN_HEIGHT;
-extern const int OBJ_SIZE;
+extern const float OBJ_SIZE;
 extern int maxBlasts;
 
 #endif
