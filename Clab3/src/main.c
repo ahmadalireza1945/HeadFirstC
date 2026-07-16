@@ -2,9 +2,10 @@
 #include "../include/spaceship.h"
 #include "../include/blast.h"
 #include "../include/globals.h"
+#include "../include/asteroid.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-#include <math.h>
+#include <unistd.h>
 
 #define PI 3.14159265358979323846
 
@@ -12,7 +13,8 @@
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
 const float OBJ_SIZE = 48;
-int maxBlasts = 20;
+int maxBlasts = 10;
+const int NUM_ASTEROIDS = 3;
 
 int main(int argc, char *argv[]) {
     if (!al_init()) {
@@ -42,13 +44,10 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Gagal menginisialisasi primitives addon!\n");
         return -1;
     }
-    //
-    // if (!maxBlasts == 10) {
-    //     printf("peluru tidak 19");
-    // }
 
     ALLEGRO_BITMAP *spaceship_image = al_load_bitmap("/home/learn/LearnC/HeadFirstC/Clab3/asset/images/spaceship.png");
     ALLEGRO_BITMAP *background_image = al_load_bitmap("/home/learn/LearnC/HeadFirstC/Clab3/asset/images/jokowi.png");
+    ALLEGRO_BITMAP *asteroid_image = al_load_bitmap("/home/learn/LearnC/HeadFirstC/Clab3/asset/images/asteroid.png");
 
     if (!spaceship_image) {
         fprintf (stderr, "allegro couldn't load spaceship\n");
@@ -68,10 +67,10 @@ int main(int argc, char *argv[]) {
     Spaceship spaceship ={
         .x = (float)SCREEN_WIDTH / 2,
         .y = (float)SCREEN_HEIGHT / 2,
-        .heading = -PI / 2.0,
-        .speed = 4.0,
-        .radius = 1.0,
-        .turn_speed = 0.05,
+        .heading = (float) -PI / 2.0,
+        .speed = (float)4.0,
+        .radius = (float)1.0,
+        .turn_speed = (float)0.05,
     };
 
     //variable untuk spawn middle spawn
@@ -91,13 +90,16 @@ int main(int argc, char *argv[]) {
         blast[i].y = spawn_y;
     }
 
+    Asteroid asteroid[NUM_ASTEROIDS];
+
+    spawn_asteroids(asteroid, NUM_ASTEROIDS);
+
     bool running = true;
     bool redraw = true;
 
     al_start_timer(timer);
 
     while (running) {
-
         ALLEGRO_EVENT event;
         al_wait_for_event(queue, &event);
 
@@ -108,7 +110,9 @@ int main(int argc, char *argv[]) {
 
             update_blast(blast, maxBlasts);
 
-            wall_warp(&spaceship,SCREEN_WIDTH, SCREEN_HEIGHT, OBJ_SIZE);
+            update_asteroids(asteroid,NUM_ASTEROIDS);
+
+            wall_warp(&spaceship,SCREEN_WIDTH, SCREEN_HEIGHT, (int)OBJ_SIZE);
 
             redraw = true;
         }else if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
@@ -117,12 +121,12 @@ int main(int argc, char *argv[]) {
                     goto cleanup;
                 case ALLEGRO_KEY_SPACE:
                     fire_blast(&spaceship, blast, maxBlasts);
+                    default:
             }
+
         }else if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             running = false;
         }
-
-
 
         if (redraw && al_is_event_queue_empty(queue)) {
             redraw = false;
@@ -133,6 +137,8 @@ int main(int argc, char *argv[]) {
             }
 
             draw_blast(display, blast,maxBlasts);
+
+            draw_asteroids(asteroid, NUM_ASTEROIDS, asteroid_image);
 
             ALLEGRO_TRANSFORM transform;
             al_identity_transform(&transform);
@@ -158,5 +164,6 @@ int main(int argc, char *argv[]) {
         al_destroy_timer(timer);
         al_destroy_display(display);
         al_destroy_event_queue(queue);
+        al_destroy_bitmap(asteroid_image);
         return 0;
 }

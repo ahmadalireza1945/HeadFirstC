@@ -1,7 +1,5 @@
 #include "../include/blast.h"
 
-#include <stdio.h>
-
 
 void fire_blast(Spaceship *spaceship, Blast *blast, int maxBlasts) {
         for (int i = 0 ; i < maxBlasts; i++) {

@@ -3,7 +3,6 @@
 
 #include <allegro5/allegro.h>
 #include <math.h>
-#include "globals.h"
 
 
 typedef struct Spaceship{

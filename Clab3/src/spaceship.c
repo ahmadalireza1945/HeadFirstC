@@ -14,14 +14,14 @@ void movement(ALLEGRO_KEYBOARD_STATE *key_state, Spaceship *spaceship) {
     if (al_key_down(key_state, ALLEGRO_KEY_UP)) {
         // cosf() menentukan pergerakan horizontal berdasarkan sudut
         // sinf() menentukan pergerakan vertikal berdasarkan sudut
-        spaceship->x += cosf(spaceship->heading) * spaceship->speed;
-        spaceship->y += sinf(spaceship->heading) * spaceship->speed;
+        spaceship->x += cos(spaceship->heading) * spaceship->speed;
+        spaceship->y += sin(spaceship->heading) * spaceship->speed;
     }
 
     // (Opsional) Tombol Bawah untuk bergerak mundur
     if (al_key_down(key_state, ALLEGRO_KEY_DOWN)) {
-        spaceship->x -= cosf(spaceship->heading) * (spaceship->speed * 0.5);
-        spaceship->y -= sinf(spaceship->heading) * (spaceship->speed * 0.5);
+        spaceship->x -= cos(spaceship->heading) * (spaceship->speed * 0.5);
+        spaceship->y -= sin(spaceship->heading) * (spaceship->speed * 0.5);
     }
 }
 
